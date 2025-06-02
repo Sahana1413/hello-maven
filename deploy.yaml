@@ -1,0 +1,12 @@
+---
+- name: Deploy Artifact to Localhost
+  hosts: localhost
+  become: true
+  become_user: exam
+  become_method: su
+
+  tasks:
+    - name: Copy the artifact to the target location
+      copy:
+        src: "/var/lib/jenkins/workspace/hello-maven/target/hello-maven-1.0-SNAPSHOT.jar"
+        dest: "/home/exam/t.jar"
